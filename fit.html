@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fit finder · Notch</title>
+<meta name="description" content="Measure a pair of jeans you like and find your closest size in every Notch cut.">
+<meta property="og:title" content="Fit finder · Notch">
+<meta property="og:description" content="Measure a pair of jeans you like and find your closest size in every Notch cut.">
+<meta property="og:image" content="https://yashcistudy.github.io/notch/assets/og.jpg">
+<meta name="theme-color" content="#1B2240">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Figtree';src:url(assets/fonts/figtree.woff2) format('woff2');font-weight:300 900;font-display:swap;}
+@font-face{font-family:'Piscolabis';src:url(assets/fonts/piscolabis.woff2) format('woff2')}
+body{margin:0;font-family:'Figtree',system-ui,sans-serif;background:#EEF0F4;color:#1B2240;}
+a{color:#1B2240}a:hover{color:#3B45D1}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #3B45D1;outline-offset:2px;}
+.nx-mob{display:none}
+.nx-mob>summary{list-style:none;cursor:pointer}
+.nx-mob>summary::-webkit-details-marker{display:none}
+.nx-bar{display:none}
+@media (max-width:820px){.nx-full{display:none!important}.nx-mob{display:block}.nx-bar{display:flex}}
+
+#app{min-height:100vh}
+</style>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:24px">This shop needs JavaScript to run.</p></noscript></div>
+<template id="tpl">
+<div style="width: 100%; background: #EEF0F4; color: #1B2240;">
+<p style="margin: 0; background: #1B2240; color: #EEF0F4; font-size: 13px; text-align: center; padding: 9px 16px;">Free size swaps within [30] days · Delivery cost shown before you pay</p>
+<header style="position: relative; background: #FFFFFF; border-bottom: 1px solid #D3D7E0;">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 56px); box-sizing: border-box; min-height: 68px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px;">
+<div style="display: flex; align-items: center;"><nav aria-label="Main" class="nx-full" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 15px; font-weight: 500;"><a href="shop.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 10px 0;">Shop</a><a href="drop.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 10px 0;">Drop 01</a><a href="fit.html" aria-current="page" style="color: #1B2240; text-decoration: underline; text-underline-offset: 6px; padding: 10px 0;">Fit finder</a><a href="about.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 10px 0;">How we cut</a></nav><details class="nx-mob"><summary style="font-size: 15px; font-weight: 600; padding: 10px 0;">Menu</summary><nav aria-label="Main, mobile" style="position: absolute; left: 0; right: 0; top: 100%; z-index: 40; background: #FFFFFF; border-bottom: 1px solid #1B2240; padding: 4px clamp(16px, 4vw, 56px) 12px; display: flex; flex-direction: column; font-size: 17px; font-weight: 500;"><a href="shop.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 14px 0; border-bottom: 1px solid #D3D7E0;">Shop</a><a href="drop.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 14px 0; border-bottom: 1px solid #D3D7E0;">Drop 01</a><a href="fit.html" aria-current="page" style="color: #1B2240; text-decoration: underline; text-underline-offset: 6px; padding: 14px 0; border-bottom: 1px solid #D3D7E0;">Fit finder</a><a href="about.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 14px 0; border-bottom: 1px solid #D3D7E0;">How we cut</a><a href="account.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 14px 0; border-bottom: 1px solid #D3D7E0;">Your fit and orders</a><a href="help.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 14px 0;">Help</a></nav></details></div>
+<a href="index.html" aria-label="Notch home" style="display: flex; padding: 8px 0;"><svg aria-hidden="true" viewBox="0 0 376 140" style="height: 26px; width: auto; display: block;"><path d="M0 40 H72 V140 H44 V76 H28 V140 H0 Z M104 40 H136 A20 20 0 0 1 156 60 V120 A20 20 0 0 1 136 140 H104 A20 20 0 0 1 84 120 V60 A20 20 0 0 1 104 40 Z M120 75 A15 15 0 1 0 120 105 A15 15 0 1 0 120 75 Z M180 14 H204 V40 H214 V60 H204 V140 H180 V60 H168 V40 H180 Z M226 40 H292 V80 H250 V100 H292 V140 H226 Z M304 0 H330 V40 H376 V140 H348 V76 H332 V140 H304 Z" fill="#1B2240" fill-rule="evenodd"></path></svg></a>
+<div style="display: flex; justify-content: flex-end; align-items: center; gap: 24px; font-size: 15px; font-weight: 500;"><a class="nx-full" href="account.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 10px 0;">Your fit</a><a href="bag.html" style="color: #1B2240; text-decoration: none; text-underline-offset: 6px; padding: 10px 0;">Bag (<span data-bag-count>0</span>)</a></div>
+</div>
+</header>
+
+<section aria-labelledby="fit-title" style="max-width: 1440px; margin: 0 auto; padding-left: clamp(16px, 4vw, 56px); padding-right: clamp(16px, 4vw, 56px); box-sizing: border-box; padding-top: clamp(28px, 4vw, 56px); padding-bottom: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px;">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px;">
+<h1 id="fit-title" style="margin: 0; font-family: 'Piscolabis', 'Figtree', sans-serif; font-weight: 400; font-size: clamp(44px, 5.2vw, 76px); line-height: 1.08; letter-spacing: 0.01em;">Find your size</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #1B2240; font-size: 17px; max-width: 560px;">Measure a pair of jeans you already like. We find your closest size in every cut and show the difference in centimetres.</p>
+</div>
+<button type="button" onClick="{{openTut}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; box-sizing: border-box; padding: 0 24px; background: transparent; color: #1B2240; border: 1px solid #1B2240; font-family: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; min-height: 44px; padding: 0 18px; gap: 8px;"><svg aria-hidden="true" viewBox="0 0 20 20" style="width: 18px; height: 18px;"><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M7.6 7.6a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .8-1 1.5v.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><circle cx="10" cy="14.6" r="1" fill="currentColor"></circle></svg>How it works</button>
+</section>
+
+<section aria-label="Fit finder" style="max-width: 1440px; margin: 0 auto; padding-left: clamp(16px, 4vw, 56px); padding-right: clamp(16px, 4vw, 56px); box-sizing: border-box; padding-bottom: clamp(48px, 6vw, 96px); display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+
+<form onSubmit="{{noSubmit}}" style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border: 1px solid #D3D7E0; padding: clamp(18px, 2.4vw, 28px); box-sizing: border-box; display: flex; flex-direction: column; gap: 4px;">
+<h2 style="margin: 0 0 6px; font-size: 18px; font-weight: 600; line-height: 1.3;">1 · Your pair, laid flat</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #596079; margin-bottom: 6px;">Measured across? Double waist, hip and thigh before you type them.</p>
+<template data-for="{{fields}}" data-as="f">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 12px 0; border-top: 1px solid #EEF0F4;">
+<label for="{{f.id}}" style="display: flex; flex-direction: column; gap: 2px; flex: 1 1 160px;"><span style="font-size: 16px; font-weight: 600;">{{f.label}}</span><span style="font-size: 13px; color: #596079; line-height: 1.4;">{{f.help}}</span></label>
+<div style="display: flex; align-items: center; border: 1px solid #1B2240;">
+<button type="button" onClick="{{f.dec}}" aria-label="{{f.decLabel}}" style="font-family: inherit; width: 44px; height: 44px; font-size: 18px; background: #FFFFFF; color: #1B2240; border: 0; cursor: pointer;">−</button>
+<input id="{{f.id}}" type="number" inputmode="decimal" step="0.5" value="{{f.val}}" onChange="{{f.set}}" style="font-family: inherit; width: 64px; height: 44px; box-sizing: border-box; text-align: center; font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums; border: 0; border-left: 1px solid #D3D7E0; border-right: 1px solid #D3D7E0; color: #1B2240; background: #FFFFFF;">
+<button type="button" onClick="{{f.inc}}" aria-label="{{f.incLabel}}" style="font-family: inherit; width: 44px; height: 44px; font-size: 18px; background: #FFFFFF; color: #1B2240; border: 0; cursor: pointer;">+</button>
+</div>
+</div>
+</template>
+<h2 style="margin: 18px 0 8px; font-size: 18px; font-weight: 600; line-height: 1.3;">2 · How do you like them?</h2>
+<div role="radiogroup" aria-label="Preferred fit" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<template data-for="{{prefs}}" data-as="p">
+<button type="button" role="radio" aria-checked="{{p.on}}" onClick="{{p.pick}}" style="font-family: inherit; min-height: 44px; padding: 0 14px; font-size: 15px; cursor: pointer; background: {{p.bg}}; color: {{p.fg}}; border: 1px solid #1B2240;">{{p.label}}</button>
+</template>
+</div>
+<label for="pairName" style="margin-top: 18px; font-size: 15px; font-weight: 600;">Name this pair <span style="font-weight: 400; color: #596079;">(optional)</span></label>
+<input id="pairName" type="text" value="{{pairName}}" onChange="{{setName}}" style="font-family: inherit; height: 44px; box-sizing: border-box; padding: 0 12px; font-size: 16px; border: 1px solid #1B2240; color: #1B2240; background: #FFFFFF;">
+</form>
+
+<div aria-live="polite" style="flex: 1.5 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #D3D7E0; padding: clamp(18px, 2.4vw, 28px); box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+<div role="group" aria-label="Compare with" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<template data-for="{{tabs}}" data-as="t">
+<button type="button" aria-pressed="{{t.on}}" onClick="{{t.pick}}" style="font-family: inherit; min-height: 44px; padding: 0 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 15px; cursor: pointer; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid #1B2240;">{{t.label}}<template data-if="{{t.best}}"><span style="font-size: 12px; font-weight: 600; padding: 2px 6px; border: 1px solid currentColor;">Best match</span></template></button>
+</template>
+</div>
+<p style="margin: 0; font-size: clamp(22px, 2.2vw, 28px); font-weight: 600; line-height: 1.3;">{{headline}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+<svg viewBox="-44 -6 112 124" style="flex: 1 1 240px; max-width: 400px; height: auto;" role="img" aria-label="{{svgLabel}}">
+<path d="{{notchPath}}" fill="#EEF0F4" stroke="#1B2240" stroke-width="0.55" stroke-linejoin="round"></path>
+<path d="{{pairPath}}" fill="none" stroke="#3B45D1" stroke-width="0.6" stroke-dasharray="1.8 1.2" stroke-linejoin="round"></path>
+<template data-for="{{marks}}" data-as="m">
+<line x1="{{m.x1}}" y1="{{m.y}}" x2="44" y2="{{m.y}}" stroke="#596079" stroke-width="0.2"></line>
+<text x="45" y="{{m.ty}}" font-size="3.5" font-weight="600" fill="#1B2240" font-family="Figtree">{{m.text}}</text>
+</template>
+</svg>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px;"><svg aria-hidden="true" viewBox="0 0 28 6" style="width: 28px; height: 6px;"><line x1="0" y1="3" x2="28" y2="3" stroke="#1B2240" stroke-width="2"></line></svg>Notch {{selName}} {{selSize}}</p>
+<p style="margin: 0; display: flex; align-items: center; gap: 10px;"><svg aria-hidden="true" viewBox="0 0 28 6" style="width: 28px; height: 6px;"><line x1="0" y1="3" x2="28" y2="3" stroke="#3B45D1" stroke-width="2" stroke-dasharray="5 3"></line></svg>{{pairLabel}}</p>
+</div>
+<table style="border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; width: 100%;">
+<thead><tr style="font-size: 12px; color: #596079;"><th scope="col" style="padding: 6px 0; font-weight: 600; text-align: left;">cm</th><th scope="col" style="font-weight: 600; text-align: right;">Yours</th><th scope="col" style="font-weight: 600; text-align: right;">Notch</th><th scope="col" style="font-weight: 600; text-align: right;">Diff</th></tr></thead>
+<tbody>
+<template data-for="{{rows}}" data-as="r">
+<tr style="border-top: 1px solid #EEF0F4;"><th scope="row" style="padding: 8px 0; text-align: left; font-weight: 500;">{{r.k}}</th><td style="text-align: right;">{{r.a}}</td><td style="text-align: right;">{{r.b}}</td><td style="text-align: right; font-weight: 600; color: {{r.c}};">{{r.d}}</td></tr>
+</template>
+</tbody>
+</table>
+<p style="margin: 0; font-size: 14px; line-height: 1.55;">{{advice}}</p>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+<a href="product.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; box-sizing: border-box; padding: 0 24px; background: #1B2240; color: #FFFFFF; border: 1px solid #1B2240; font-family: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer;">Shop {{selName}} {{selSize}}</a>
+<a href="account.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; box-sizing: border-box; padding: 0 24px; background: transparent; color: #1B2240; border: 1px solid #1B2240; font-family: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer;">Save this fit</a>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #596079; font-size: 13px;">Below the thigh, your pair's knee and hem are estimated. Only W80 Regular is a measured sample; other sizes use proposed grading.</p>
+</div>
+</section>
+
+<section aria-labelledby="paper-title" style="background: #FFFFFF; border-top: 1px solid #D3D7E0;">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(48px, 6vw, 96px) clamp(16px, 4vw, 56px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center;">
+<img src="assets/img/print-tracing.webp" alt="A pair of light-wash jeans laid flat on pale floorboards, with a small tracing-paper card, a pencil and a ruler beside them." style="flex: 1.4 1 420px; min-width: 0; width: 100%; aspect-ratio: 3 / 2; object-fit: cover;">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 14px;">
+<h2 id="paper-title" style="margin: 0; font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; line-height: 1.3; letter-spacing: -0.005em;">In a shop? Use the tracing card</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #1B2240;">Shops that stock Notch keep a tracing card on the rail. Draw around your pair on it, where one square is 5 cm, then hold it over any Notch card to compare.</p>
+<a href="stockists.html" style="font-size: 15px; font-weight: 500;">Find a shop with the bundle</a>
+</div>
+</div>
+</section>
+
+<footer style="background: #1B2240; color: #EEF0F4;">
+<div style="max-width: 1440px; margin: 0 auto; padding: 56px clamp(16px, 4vw, 56px) 28px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between;">
+<form onSubmit="{{noSubmit}}" style="display: flex; flex-direction: column; gap: 12px; flex: 1 1 300px; max-width: 420px;"><p role="img" aria-label="Notch" style="margin: 0 0 8px;"><svg aria-hidden="true" viewBox="0 0 376 140" style="height: 34px; width: auto; display: block;"><path d="M0 40 H72 V140 H44 V76 H28 V140 H0 Z M104 40 H136 A20 20 0 0 1 156 60 V120 A20 20 0 0 1 136 140 H104 A20 20 0 0 1 84 120 V60 A20 20 0 0 1 104 40 Z M120 75 A15 15 0 1 0 120 105 A15 15 0 1 0 120 75 Z M180 14 H204 V40 H214 V60 H204 V140 H180 V60 H168 V40 H180 Z M226 40 H292 V80 H250 V100 H292 V140 H226 Z M304 0 H330 V40 H376 V140 H348 V76 H332 V140 H304 Z" fill="#EEF0F4" fill-rule="evenodd"></path></svg></p><label for="ft-email" style="font-size: 15px; line-height: 1.5;">Hear when a Drop has a pair in your size.</label><div style="display: flex; gap: 0;"><input id="ft-email" type="email" placeholder="Email" autocomplete="email" style="flex: 1 1 auto; min-width: 0; height: 46px; box-sizing: border-box; padding: 0 12px; font-family: inherit; font-size: 15px; border: 1px solid #EEF0F4; background: transparent; color: #EEF0F4;"><button type="submit" style="height: 46px; padding: 0 18px; font-family: inherit; font-size: 15px; font-weight: 600; background: #EEF0F4; color: #1B2240; border: 1px solid #EEF0F4; cursor: pointer;">Sign up</button></div><p style="margin: 0; font-size: 13px; color: #B9BED3;">Instagram · TikTok · Pinterest [@handle]</p></form>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 56px;"><nav aria-label="Shop" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; min-width: 140px;"><p style="margin: 0 0 4px; font-size: 13px; font-weight: 600; color: #B9BED3;">Shop</p><a href="shop.html" style="color: #EEF0F4; text-decoration: none;">All cuts</a><a href="drop.html" style="color: #EEF0F4; text-decoration: none;">Drop 01</a><a href="fit.html" style="color: #EEF0F4; text-decoration: none;">Fit finder</a></nav><nav aria-label="Help" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; min-width: 140px;"><p style="margin: 0 0 4px; font-size: 13px; font-weight: 600; color: #B9BED3;">Help</p><a href="help.html" style="color: #EEF0F4; text-decoration: none;">Delivery</a><a href="help.html" style="color: #EEF0F4; text-decoration: none;">Size swaps and returns</a><a href="help.html" style="color: #EEF0F4; text-decoration: none;">Size tables</a><a href="account.html" style="color: #EEF0F4; text-decoration: none;">Your orders</a></nav><nav aria-label="Notch" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px; min-width: 140px;"><p style="margin: 0 0 4px; font-size: 13px; font-weight: 600; color: #B9BED3;">Notch</p><a href="about.html" style="color: #EEF0F4; text-decoration: none;">How we cut</a><a href="stockists.html" style="color: #EEF0F4; text-decoration: none;">For shops and press</a></nav></div>
+</div>
+<p style="max-width: 1440px; margin: 0 auto; padding: 16px clamp(16px, 4vw, 56px) 28px; box-sizing: border-box; font-size: 12.5px; color: #B9BED3; border-top: 1px solid #2E3762;">Concept project by Yas Dastan. Products, prices, measurements and people are generated for this portfolio piece. Bracketed values are placeholders.</p>
+</footer>
+
+<template data-if="{{tutOpen}}">
+<div style="position: fixed; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box;">
+<button type="button" aria-label="Close the tutorial" onClick="{{closeTut}}" style="position: absolute; inset: 0; background: rgba(27, 34, 64, 0.4); border: 0; cursor: pointer;"></button>
+<div role="dialog" aria-modal="true" aria-labelledby="tut-title" style="position: relative; width: min(600px, 100%); max-height: 100%; overflow-y: auto; background: #FFFFFF; border: 1px solid #1B2240; box-sizing: border-box; display: flex; flex-direction: column;">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #D3D7E0;">
+<p style="margin: 0; font-size: 13px; color: #596079; font-variant-numeric: tabular-nums;">How it works · step {{tutNum}} of 4</p>
+<button type="button" onClick="{{closeTut}}" aria-label="Close the tutorial" style="font-family: inherit; width: 44px; height: 44px; margin: -10px -12px -10px 0; background: none; border: 0; cursor: pointer; color: #1B2240; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" viewBox="0 0 20 20" style="width: 18px; height: 18px;"><path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+</div>
+<div style="background: #EEF0F4; display: flex; justify-content: center; padding: 20px;">
+<svg viewBox="-44 -10 124 126" style="width: 100%; max-width: 360px; height: auto;" role="img" aria-label="{{tut.alt}}">
+<path d="{{tutBase}}" fill="#FFFFFF" stroke="#1B2240" stroke-width="0.6" stroke-linejoin="round"></path>
+<template data-if="{{tut.showPair}}"><path d="{{tutPair}}" fill="none" stroke="#3B45D1" stroke-width="0.7" stroke-dasharray="1.8 1.2" stroke-linejoin="round"></path></template>
+<template data-for="{{tut.lines}}" data-as="ln">
+<path d="{{ln.d}}" fill="none" stroke="#3B45D1" stroke-width="1.1" stroke-linecap="round"></path>
+<text x="{{ln.tx}}" y="{{ln.ty}}" font-size="4" font-weight="600" fill="#1B2240" font-family="Figtree">{{ln.label}}</text>
+</template>
+</svg>
+</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+<h2 id="tut-title" style="margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3;">{{tut.title}}</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6;">{{tut.text}}</p>
+<div aria-hidden="true" style="display: flex; gap: 6px; margin-top: 6px;">
+<template data-for="{{tutDots}}" data-as="d"><span style="width: 24px; height: 3px; background: {{d.bg}};"></span></template>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 0 20px 20px;">
+<button type="button" onClick="{{closeTut}}" style="font-family: inherit; background: none; border: 0; padding: 12px 0; font-size: 15px; color: #1B2240; text-decoration: underline; cursor: pointer;">Skip, I know how</button>
+<div style="display: flex; gap: 8px;">
+<template data-if="{{tutHasBack}}"><button type="button" onClick="{{tutBack}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; box-sizing: border-box; padding: 0 24px; background: transparent; color: #1B2240; border: 1px solid #1B2240; font-family: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; min-height: 44px;">Back</button></template>
+<button type="button" onClick="{{tutNext}}" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; box-sizing: border-box; padding: 0 24px; background: #1B2240; color: #FFFFFF; border: 1px solid #1B2240; font-family: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; min-height: 44px;">{{tutNextLabel}}</button>
+</div>
+</div>
+</div>
+</div>
+</template>
+</div>
+</template>
+<script src="js/morphdom.js"></script>
+<script src="js/dc-lite.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { waist: 80, hip: 107, thigh: 65, inseam: 78, pref: 0, sel: -1, name: 'my grey straights', tut: (props.showTutorialOnOpen ?? true) ? 0 : -1 }; }
+  renderVals() {
+    var self = this, st = this.state;
+    var f1 = function (v) { return Math.round(v * 10) / 10; };
+    var sgn = function (v) { v = f1(v); return (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(v); };
+    var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+    var defs = [
+      { key: 'waist', label: 'Waist', help: 'Across the top of the waistband, edge to edge.', min: 56, max: 120 },
+      { key: 'hip', label: 'Hip', help: 'Across, 20 cm below the top of the waistband.', min: 76, max: 150 },
+      { key: 'thigh', label: 'Thigh', help: 'Across one leg, 2 cm below the crotch seam.', min: 40, max: 100 },
+      { key: 'inseam', label: 'Inseam', help: 'Inside leg, from the crotch seam to the hem.', min: 60, max: 92 }
+    ];
+    var setv = function (k, v, d) { var o = {}; o[k] = clamp(f1(v), d.min, d.max); self.setState(o); };
+    var fields = defs.map(function (d) {
+      return { id: 'fit-' + d.key, label: d.label, help: d.help, val: st[d.key], decLabel: 'Make ' + d.label.toLowerCase() + ' 0.5 cm smaller', incLabel: 'Make ' + d.label.toLowerCase() + ' 0.5 cm bigger',
+        dec: function () { setv(d.key, st[d.key] - 0.5, d); }, inc: function () { setv(d.key, st[d.key] + 0.5, d); },
+        set: function (e) { var v = parseFloat(e.target.value); if (!isNaN(v)) setv(d.key, v, d); } };
+    });
+    var on = function (b) { return { on: b ? 'true' : 'false', bg: b ? '#1B2240' : '#FFFFFF', fg: b ? '#FFFFFF' : '#1B2240' }; };
+    var prefsSrc = [['Same as my pair', 0, 0], ['A bit roomier', 3, 2], ['A bit slimmer', -2, -1.5]];
+    var prefs = prefsSrc.map(function (p, i) { return Object.assign({ label: p[0], pick: function () { self.setState({ pref: i, sel: -1 }); } }, on(i === st.pref)); });
+    var adj = prefsSrc[st.pref];
+    var sizes = [72, 76, 80, 84, 88, 92], lens = [['Short', 71], ['Regular', 76], ['Long', 81]];
+    var cuts = [ { name: 'Straight', hip: 106, thigh: 64, knee: 46, hem: 42 }, { name: 'Wide', hip: 112, thigh: 72, knee: 58, hem: 56 }, { name: 'Taper', hip: 108, thigh: 66, knee: 42, hem: 34 } ];
+    var len = lens.reduce(function (a, b) { return Math.abs(b[1] - st.inseam) < Math.abs(a[1] - st.inseam) ? b : a; });
+    var res = cuts.map(function (c) {
+      var best = null;
+      sizes.forEach(function (W) {
+        var k = (W - 80) / 4, g = { waist: W, hip: c.hip + 4 * k, thigh: c.thigh + 2.4 * k, knee: c.knee + 1.6 * k, hem: c.hem + 1.2 * k };
+        var cost = 3 * Math.abs(W - st.waist) + Math.abs(g.hip - (st.hip + adj[1])) + 1.2 * Math.abs(g.thigh - (st.thigh + adj[2])) + (W < st.waist - 1 ? 30 : 0);
+        if (!best || cost < best.cost) best = { cost: cost, g: g, W: W };
+      });
+      return { name: c.name, g: best.g, W: best.W, cost: best.cost };
+    });
+    var bestIdx = 0; res.forEach(function (r, i) { if (r.cost < res[bestIdx].cost) bestIdx = i; });
+    var sel = st.sel >= 0 ? st.sel : bestIdx, r = res[sel];
+    var tabs = res.map(function (x, i) { return Object.assign({ label: x.name + ' W' + x.W, best: i === bestIdx, pick: function () { self.setState({ sel: i }); } }, on(i === sel)); });
+    var outline = function (m, L) {
+      var W = m.waist / 4, H = m.hip / 4, oc = m.thigh / 2, kn = m.knee / 2 + 2, hm = m.hem / 2 + 2, rr = 29, ky = rr + 34 * L / 76, hy = rr + L;
+      var right = [[W, 0], [H, 20], [oc, rr], [kn, ky], [hm, hy], [2, hy], [2, ky], [0, rr + 2]];
+      var pts = right.concat(right.slice(0, 7).reverse().map(function (p) { return [-p[0], p[1]]; }));
+      return pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(2) + ' ' + p[1].toFixed(2); }).join(' ') + ' Z';
+    };
+    var pairM = { waist: st.waist, hip: st.hip, thigh: st.thigh, knee: st.thigh * 0.72, hem: st.thigh * 0.66 };
+    var d = { waist: r.W - st.waist, hip: r.g.hip - st.hip, thigh: r.g.thigh - st.thigh, inseam: len[1] - st.inseam };
+    var col = function (v) { return Math.abs(v) < 1.5 ? '#1E6B3C' : '#1B2240'; };
+    var rows = [['Waist', st.waist, r.W, d.waist], ['Hip', st.hip, f1(r.g.hip), d.hip], ['Thigh', st.thigh, f1(r.g.thigh), d.thigh], ['Inseam', st.inseam, len[1], d.inseam]]
+      .map(function (x) { return { k: x[0], a: x[1], b: x[2], d: sgn(x[3]), c: col(x[3]) }; });
+    var word = function (v, more, less) { return Math.abs(v) < 1.5 ? null : (Math.abs(f1(v)) + ' cm ' + (v > 0 ? more : less)); };
+    var notes = [word(d.hip, 'roomier at the hip', 'closer at the hip'), word(d.thigh, 'more room in the thigh', 'slimmer in the thigh'), word(d.inseam, 'longer', 'shorter in the leg')].filter(Boolean);
+    var size = 'W' + r.W + ' ' + len[0];
+    var who = st.name || 'your pair';
+
+    // tutorial
+    var base = outline({ waist: 80, hip: 106, thigh: 64, knee: 46, hem: 42 }, 76);
+    var steps = [
+      { title: 'Pick a pair you love', text: 'Any jeans that fit the way you like. Lay them flat on a table with the button done up and the legs straight.', alt: 'A pair of jeans laid flat on a table line.', showPair: false,
+        lines: [ { d: 'M-40 107 H58', label: 'table', tx: 44, ty: 103 } ] },
+      { title: 'Measure across the top', text: 'Waist: straight across the waistband. Hip: across, 20 cm below the top. You measured one layer, so double both numbers.', alt: 'Waist line across the waistband and hip line 20 cm lower, each marked times two.', showPair: false,
+        lines: [ { d: 'M-20 1 H20', label: 'waist ×2', tx: 30, ty: 2.4 }, { d: 'M-26.5 20 H26.5', label: 'hip ×2', tx: 30, ty: 21.4 } ] },
+      { title: 'Then the legs', text: 'Thigh: across one leg, 2 cm below the crotch seam, doubled. Inseam: along the inside seam, from the crotch to the hem.', alt: 'Thigh line across one leg below the crotch, and the inseam running down the inside leg.', showPair: false,
+        lines: [ { d: 'M2 33 H31.4', label: 'thigh ×2', tx: 34, ty: 34.4 }, { d: 'M3.4 32 V104', label: 'inseam', tx: 6, ty: 70 } ] },
+      { title: 'See your size', text: 'We pick your closest size in each cut and draw it over your pair. Solid is Notch, dashed blue is yours, and the table shows every difference in cm.', alt: 'A solid Notch outline with a dashed outline of your pair over it.', showPair: true,
+        lines: [] }
+    ];
+    var t = st.tut, ts = steps[Math.max(0, t)];
+    return {
+      fields: fields, prefs: prefs, tabs: tabs, rows: rows, pairName: st.name, pairLabel: (st.name || 'Your pair') + ', as measured',
+      setName: function (e) { self.setState({ name: e.target.value }); },
+      noSubmit: function (e) { e.preventDefault(); },
+      selName: r.name, selSize: size,
+      headline: sel === bestIdx ? r.name + ' ' + size + ' is your closest match.' : r.name + ' ' + size + ', to compare.',
+      advice: notes.length ? 'Against ' + who + ': ' + notes.join(', ') + '.' : 'Within 1.5 cm of ' + who + ' on every line.',
+      notchPath: outline(r.g, len[1]), pairPath: outline(pairM, st.inseam),
+      marks: [ { x1: (Math.max(r.W, st.waist) / 4 + 1).toFixed(2), y: 0, ty: 1.2, text: 'Waist ' + sgn(d.waist) }, { x1: (Math.max(r.g.hip, st.hip) / 4 + 1).toFixed(2), y: 20, ty: 21.2, text: 'Hip ' + sgn(d.hip) }, { x1: 26, y: (29 + Math.max(len[1], st.inseam)).toFixed(1), ty: (30.2 + Math.max(len[1], st.inseam)).toFixed(1), text: 'Inseam ' + sgn(d.inseam) } ],
+      svgLabel: 'Notch ' + r.name + ' ' + size + ' drawn over your pair. Hip ' + sgn(d.hip) + ' cm, thigh ' + sgn(d.thigh) + ' cm, inseam ' + sgn(d.inseam) + ' cm.',
+      tutOpen: t >= 0, tut: ts, tutNum: t + 1, tutBase: base, tutPair: outline({ waist: 80, hip: 109, thigh: 66, knee: 47, hem: 43 }, 78),
+      tutDots: steps.map(function (s, i) { return { bg: i === t ? '#1B2240' : '#D3D7E0' }; }),
+      tutHasBack: t > 0, tutNextLabel: t === 3 ? 'Start measuring' : 'Next',
+      tutNext: function () { self.setState({ tut: t >= 3 ? -1 : t + 1 }); },
+      tutBack: function () { self.setState({ tut: Math.max(0, t - 1) }); },
+      openTut: function () { self.setState({ tut: 0 }); },
+      closeTut: function () { self.setState({ tut: -1 }); }
+    };
+  }
+}
+
+DC.mount(Component, {"showTutorialOnOpen": true});
+</script>
+</body>
+</html>
