@@ -2,7 +2,7 @@
 
 A concept online shop for a small UK denim label, designed and built by Yas Dastan as a portfolio project.
 
-**Live site:** https://yashcistudy.github.io/notch/
+**Live site:** https://yashcistudy.github.io/Notch/
 
 ## What it is
 
